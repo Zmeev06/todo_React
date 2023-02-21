@@ -1,3 +1,5 @@
+// удали ненужные файлы из проекта, которые с cra создались 
+
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import NoteList from "./components/NoteList";
@@ -7,7 +9,7 @@ import Footer from "./components/Footer";
 function App() {
   const [notes, setNotes] = useState([]);
 
-
+  // непонятная функция, её либо вообще убрать, либо сделать иначе, фильтр здесь явно ни к чему
   const statusNote = (note) => {
     let newNotes = [...notes].filter(n => {
       if (n.id === note.id) {
@@ -26,6 +28,7 @@ function App() {
     setNotes(notes.filter((n) => n.id !== note.id));
   };
 
+  // стейты в начале компонента должны находиться
   const [filtered, setFiltered] = useState(notes);
 
   const setFilter = (status) => {

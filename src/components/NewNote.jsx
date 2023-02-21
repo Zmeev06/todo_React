@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 
 const NewNote = ({create, notes}) => {
 
+    // для инпута должно быть отдельное состояние
     const [note, setNote] = useState("")
 
+    
     const addNewNote = (e) => {
         e.preventDefault()
         if(note === "") {
@@ -15,11 +17,14 @@ const NewNote = ({create, notes}) => {
             if(notes.length ===17) {
                 alert("Нельзя добавить больше 17 записей!")
             } else {
+// По хорошему лучше переделать функцию добавления задачи и передавать в неё не фул объект, а лишь текст.
+// А создавать структуру объекта уже в самой функции создания, которая в App.jsx
             const newNote = {
                 name: note, 
                 id: Date.now(),
                 status: true
             }
+            
             create(newNote)
             setNote("")
         }

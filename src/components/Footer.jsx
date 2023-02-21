@@ -2,6 +2,7 @@ import React from 'react';
 
 const Footer = (props) => {
 
+    // для кнопок можно создать отдельный массив с данными и поместить в компонент через map. Никите написал пример структуры массива
 
     return (
         <div className='footer'>
