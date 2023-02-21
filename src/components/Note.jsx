@@ -3,7 +3,7 @@ const Note = (props) => {
 
     return (
         <div className='note'>
-            <div className="noteBlock" onClick={() => props.status(props.note)}>
+            <div className="noteBlock" onClick={() => props.status(props.note.id)}>
                 <div className="noteText">
                     <div className={!props.note.status ? "checkNoteActive" : "checkNoteUnActive"}></div>
                     <p className={!props.note.status ? "noteNameActive" : "noteName"}>{props.note.name}</p>

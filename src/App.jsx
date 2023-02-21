@@ -8,28 +8,22 @@ import Footer from "./components/Footer";
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [filtered, setFiltered] = useState(notes);
 
   // непонятная функция, её либо вообще убрать, либо сделать иначе, фильтр здесь явно ни к чему
-  const statusNote = (note) => {
-    let newNotes = [...notes].filter(n => {
-      if (n.id === note.id) {
-        n.status = !n.status
-      }
-      return n
-    })
-    setNotes(newNotes)
+  const statusNote = (id) => {
+    setNotes(notes.map(e => e.id === id ? ({...e, status:!e.status}) : e))
   }
 
-  const createNote = (newNote) => {
-    setNotes([...notes, newNote]);
+  const createNote = (name) => {
+    setNotes([...notes, {id: Date.now(), name:name, status:true}]);
   };
 
   const removeNote = (note) => {
     setNotes(notes.filter((n) => n.id !== note.id));
   };
 
-  // стейты в начале компонента должны находиться
-  const [filtered, setFiltered] = useState(notes);
+
 
   const setFilter = (status) => {
     if (status === "all") {

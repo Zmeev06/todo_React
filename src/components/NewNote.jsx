@@ -19,13 +19,8 @@ const NewNote = ({create, notes}) => {
             } else {
 // По хорошему лучше переделать функцию добавления задачи и передавать в неё не фул объект, а лишь текст.
 // А создавать структуру объекта уже в самой функции создания, которая в App.jsx
-            const newNote = {
-                name: note, 
-                id: Date.now(),
-                status: true
-            }
-            
-            create(newNote)
+            const name = note
+            create(name)
             setNote("")
         }
         }
